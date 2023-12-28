@@ -1,0 +1,46 @@
+const cors = require('cors');
+const express = require('express');
+const axios = require('axios');
+require('dotenv').config();
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+app.use(cors());
+
+app.get('/api/weather/:city', async (req, res) => {
+    try {
+        console.log('Received request for city:', req.params.city);
+
+        const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
+            params: {
+                q: req.params.city,
+                appid: process.env.OPENWEATHER_API_KEY,
+                units: 'metric',
+            },
+        });
+
+        console.log('Weather data received:', data);
+
+        const temperatureCelsius = parseFloat(data.main.temp);
+        const temperatureFahrenheit = Math.round((temperatureCelsius * 9/5) + 32);
+        // Send weather data to the client
+        res.json({
+            city: data.name,
+            temperature: temperatureFahrenheit,
+            description: data.weather[0].description,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching weather data');
+    }
+});
+
+    app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
+
+
+
+

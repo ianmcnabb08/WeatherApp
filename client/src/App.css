@@ -1,0 +1,42 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: slategray;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.city-cell {
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+
+.weather-details.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
