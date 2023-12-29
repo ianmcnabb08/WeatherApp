@@ -48,13 +48,13 @@ const WeatherDetails = () => {
                 <button onClick={navigateToHome} id='home-button'>Home</button>
             </div>
             <div id='city-weather'>
-                <h2>Today's Weather In <span id='detail-city'>{weatherData.city}</span></h2>
-                <h2>Temperature: <span id='detail-city'>{weatherData.temperature}°F</span></h2>
-                <h2>Conditions: <span id='detail-city'>{weatherData.description}</span></h2>
+                <h1>Today's Weather In <span id='detail-city'>{weatherData.city}</span></h1>
+                <h2>Temperature: <span id='detail-temp'>{weatherData.temperature}°F</span></h2>
+                <h2>Current Conditions: <span id='detail-conditions'>{weatherData.description}</span></h2>
             </div>
 
             {forecastData && (
-                <div className="forecast">
+                <div className="forecast" >
                     <h1 id='forecast-header'>5-Day Forecast</h1>
                     <table id="forecast">
                         <thead>
