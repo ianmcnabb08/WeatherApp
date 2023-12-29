@@ -94,6 +94,14 @@ body {
   color: #04AA6D;
 }
 
+#detail-temp{
+  color: #04AA6D;
+}
+
+#detail-conditions{
+  color: #04AA6D;
+}
+
 #forecast-header{
   text-align: center;
 }
