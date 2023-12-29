@@ -44,38 +44,50 @@ const WeatherDetails = () => {
         <div className="weather-details">
 
             <div id='header'>
-                <h1>Weather<span id='detail-city'>App</span></h1>
+                <h1>Weather<span id='label-span'>App</span></h1>
                 <button onClick={navigateToHome} id='home-button'>Home</button>
             </div>
             <div id='city-weather'>
-                <h1>Today's Weather In <span id='detail-city'>{weatherData.city}</span></h1>
-                <h2>Temperature: <span id='detail-temp'>{weatherData.temperature}°F</span></h2>
-                <h2>Current Conditions: <span id='detail-conditions'>{weatherData.description}</span></h2>
-            </div>
+                <h1><span id='detail-city'>{weatherData.city}</span></h1>
+                <h2><span id='detail-temp'>{weatherData.temperature}°F</span></h2>
+                <h2><span id='detail-conditions'>{weatherData.description}</span></h2>
 
             {forecastData && (
-                <div className="forecast" >
-                    <h1 id='forecast-header'>5-Day Forecast</h1>
-                    <table id="forecast">
-                        <thead>
-                            <tr>
-                                <th><h3>Date</h3></th>
-                                <th><h3>High (°F)</h3></th>
-                                <th><h3>Low (°F)</h3></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+            <div className="forecast">
+                <h1 id='forecast-header'>5-Day Forecast</h1>
+                <table id="forecast">
+                    <thead>
+                        <tr>
+                            <th></th>
                             {forecastData.map((forecastItem) => (
-                                <tr key={forecastItem.date}>
-                                    <td><h4>{formatShortDate(forecastItem.date)}</h4></td>
-                                    <td><h4>{Math.round(forecastItem.high)}°F</h4></td>
-                                    <td><h4>{Math.round(forecastItem.low)}°F</h4></td>
-                                </tr>
+                                <th key={forecastItem.date}>
+                                    <h4>{formatShortDate(forecastItem.date)}</h4>
+                                </th>
                             ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h4>H</h4></td>
+                            {forecastData.map((forecastItem) => (
+                                <td key={forecastItem.date}>
+                                    <h4>{Math.round(forecastItem.high)}°F</h4>
+                                </td>
+                            ))}
+                        </tr>
+                        <tr>
+                            <td><h4>L</h4></td>
+                            {forecastData.map((forecastItem) => (
+                                <td key={forecastItem.date}>
+                                    <h4>{Math.round(forecastItem.low)}°F</h4>
+                                </td>
+                            ))}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        )}
+        </div>
         </div>
     );
 };

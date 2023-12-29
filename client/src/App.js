@@ -11,6 +11,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <head>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Your+Selected+Font" />
+      </head>
         <Routes>
             <Route element={<Main />} path="/" exact />
             <Route element={<WeatherDetails />} path="/details/:city" />
