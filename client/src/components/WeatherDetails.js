@@ -44,7 +44,7 @@ const WeatherDetails = () => {
         <div className="weather-details">
 
             <div id='header'>
-                <h1>Weather<span id='label-span'>App</span></h1>
+                <h1>MyWeather<span id='label-span'>App</span></h1>
                 <button onClick={navigateToHome} id='home-button'>Home</button>
             </div>
             <div id='city-weather'>
