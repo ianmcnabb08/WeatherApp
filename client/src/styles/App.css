@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Lucida Console", "Courier New", monospace;
   background-color: whitesmoke;
   color: black;
 }
@@ -61,8 +61,8 @@ body {
 #button {
   width: 100%;
   max-width: 500px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #04AA6D;
+  color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;

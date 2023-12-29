@@ -19,7 +19,7 @@ function Main() {
     return (
         <div className="main-container">
         <div className="city-selection" id='form'>
-            <h1>Weather App</h1>
+            <h1>Weather<span id='detail-city'>App</span></h1>
             <input
             type="text"
             placeholder="Enter city"
