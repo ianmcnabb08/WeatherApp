@@ -10,11 +10,17 @@ const WeatherDetails = () => {
     const [forecastData, setForecastData] = useState(null);
     const navigate = useNavigate();
 
-    const formatShortDate = (dateString) => {
-        const options = { month: 'short', day: 'numeric' };
+    // Function to get the day of the week
+    const formatDayOfWeek = (dateString) => {
+        const options = { weekday: 'long' };  // Full weekday name
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
+    // Function to get the short date
+    const formatShortDate = (dateString) => {
+        const options = { month: 'long', day: 'numeric' }; // Long month and numeric day
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    };
     useEffect(() => {
         const fetchWeatherDetails = async () => {
             try {
@@ -55,14 +61,15 @@ const WeatherDetails = () => {
             {forecastData && (
             <div className="forecast">
                 <h1 id='forecast-header'>5-Day Forecast</h1>
-                <table id="forecast">
+                <table id="forecast" className='center'>
                     <thead>
                         <tr>
                             <th></th>
                             {forecastData.map((forecastItem) => (
-                                <th key={forecastItem.date}>
-                                    <h4>{formatShortDate(forecastItem.date)}</h4>
-                                </th>
+                            <th key={forecastItem.date}>
+                                <h4>{formatDayOfWeek(forecastItem.date)}</h4>  {/* Day of the week */}
+                                <h5>{formatShortDate(forecastItem.date)}</h5>  {/* Date */}
+                            </th>
                             ))}
                         </tr>
                     </thead>
